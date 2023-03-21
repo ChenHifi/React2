@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { Bars3Icon, XMarkIcon, ShoppingBagIcon } from '@heroicons/react/24/solid'
 
 
 const Navbar = () => {
@@ -19,12 +19,26 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="hidden md:flex pr-4">
+                    <h1 className="px-8 py-3 text-gray-700"><ShoppingBagIcon className="w-7"/></h1>
                     <button className="border-none bg-transparent text-black mr-4">Sign In</button>
                     <button className="px-8 py-3">Sign Up</button>
                 </div>
-                <div className="md:hidden hover:cursor-pointer" onClick={handleClick}>
-                    {!nav ? <Bars3Icon className="w-6"/> : <XMarkIcon className="w-6" />}
+                <div className="md:hidden hover:cursor-pointer flex items-center">
+                    <div className="flex items-center">
+                        <div className="px-8 py-3 text-gray-700">
+                            <ShoppingBagIcon className="w-7" onClick={(e) => e.stopPropagation()} />
+                        </div>
+                        <div className="mx-2" onClick={(e) => e.stopPropagation()}>
+                            {!nav ? <Bars3Icon className="w-6" onClick={handleClick}/> : <XMarkIcon className="w-6" onClick={handleClick}/>}
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+
+
 
             </div>
 
@@ -34,7 +48,7 @@ const Navbar = () => {
                 <li className="border-b-2 border-zinc-300 w-full">A propos</li>
                 <li className="border-b-2 border-zinc-300 w-full">Contact</li>
                 <div className="flex flex-col my-4">
-                    <button className="bg-transparent text-indigo-600 px-8 py-3 mb-4">Sign In</button>
+                    <button className="bg-transparent text-indigo-700 px-8 py-3 mb-4">Sign In</button>
                     <button className="px-8 py-3">Sign Up</button>
                 </div>
             </ul>
